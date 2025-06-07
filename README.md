@@ -65,7 +65,8 @@ Para iniciar la simulación y la consola SCADA, ejecuta los siguientes scripts d
 ## 📂 Estructura de Ficheros del Proyecto
 
 La estructura del proyecto está diseñada para ser modular y extensible.
-CADA23/
+```
+SCADA23/
 ├── src/
 │   ├── config_manager.py        # 🔧 Clase para cargar y manejar la configuración del sistema (e.g., config.json).
 │   ├── utils.py                 # 🛠️ Funciones utilitarias generales para el proyecto.
@@ -93,7 +94,7 @@ CADA23/
 │   └── water_system.json        # ⚙️ Archivo de configuración por defecto para el módulo de Agua Potable.
 │
 └── README.md                    # 📖 Este mismo archivo.
-
+```
 
 
 ## 🤝 Colaboración
