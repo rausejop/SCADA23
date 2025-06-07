@@ -1,0 +1,175 @@
+SCADA23
+Actúa como un ingeniero de ciberseguridad industrial de la empresa CONFIANZA23
+que debe generar el "Documento de Ingeniería de Detalle" para la plataforma SCADA23"
+que debe seguir el equipo de desarrollo para construirla.
+
+
+PLATAFORMA SCADA23
+La plataforma de ciberseguridad industrial SCADA23 sirve a la vez de
+de laboratorio de pruebas y simulación de comportamiento de autómatas programables PLC
+y a la vez es capaz de monitorizar y leer tráfico de autómatas PLC reales del mercado
+y servir de sistema SCADA para supervisión, control y adquisición de datos de sensores y actuadores reales.
+
+
+PROTOCOLOS INDISTRIALES SOPORTADOS
+Los protocolos industriales soportados son Modbus/TCP, PROFINET, S7 y OPC-UA pero solamente se codificará el protocolo Modbus/TCP
+Pero en esta primera fase solamente se implementará Modbus/TCP
+
+
+SECTORES SOPORTADOS
+Los sectores soportados serán:
+- SAC01  Energía
+- SAC01a Electricidad
+- SAC01b Sistemas urbanos de calefacción y refrigeración
+- SAC01c Crudo
+- SAC01d Gas
+- SAC01e Hidrógeno
+- SAC02  Trasnporte
+- SAC02a Transporte aéreo
+- SAC02b Transporte por ferrocarril
+- SAC02c Transporte marítimo y fluvial
+- SAC02d Transporte por carretera
+- SAC03  Banca
+- SAC04  Infraestructura de los mercados financieros
+- SAC05  Sector sanitario
+- SAC06  Agua potable
+- SAC07  Aguas residuales
+- SAC08  Infraestructura digital
+- SAC09  Gestión de servicios de TIC (de empresa a empresa) 
+- SAC10  Entidades de la Administración pública, con exclusión del poder judicial, los parlamentos y los bancos centrales 
+- SAC11  Espacio
+- SAC12  Industria Nuclear
+- OTR01  Servicios postales y de mensajería 
+- OTR02  Gestión de residuos 
+- OTR03  Fabricación, producción y distribución de sustancias y mezclas químicas 
+- OTR04  Producción, transformación y distribución de alimentos 
+- OTR05  Fabricación
+- OTR5a Fabricación de productos sanitarios y productos sanitarios para diagnóstico in vitro 
+- OTR5b Fabricación de productos informáticos, electrónicos y ópticos 
+- OTR5c Fabricación de material eléctrico
+- OTR5d Fabricación de maquinaria y equipo n.c.o.p. 
+- OTR5e Fabricación de vehículos de motor, remolques y semirremolques
+- OTR5f Fabricación de otro material de transporte 
+- OTR06  Proveedores de servicios digitales 
+- OTR07  Investigación 
+- OTR08  Seguridad Privada 
+
+El primer módulo implementado, cargado por defecto, es para el sector Agua Potable,
+pero se permitirá cargar otros sectores en base a un fichero de configuración.
+
+
+TECNOLOGÍA DE DESARROLLO
+La tecnología aplicada será Python 3.13.4 para Windows 11,
+con scripts basados en la librería scapy para enviar datos desde el PLC al SCADA cuando se lo pida,
+y enviar comandos desde SCADA al PLC.
+La parte cliente está hecha con scripts Python que inyectan tráfico modbus/tcp con la librería scapy simulando un PLC
+y l aparte servidora dibuja de forma gráfica con tcl/tk simulando los sitemas dento del HMI del SCADA a
+modo de u Pipe & Instrumentation Diagram (P&ID).
+
+
+DOCUMENTO DE INGENIERÍA DE DETALLE
+El documento de ingeniería de detalle está escrito en texto en claro en castellano con un lenguaje
+técnico correcto adecuado para que un programador Python del equipo de desarrollo
+sea capaz de escribir el código para la plataforma, en solitario o coordinándose con otros miembros del equipo de desarrollo.
+
+Debes generar el documento de ingeniería de detalle incluyendo especificaciones
+funcionales y especificaciones no funcionales, incluyendo:
+- código: código secuencial RFUNC001, RF002 para los funcionales y
+			    RNFUNC001, RNFUNC002, etc. para los no funcionales.
+- descripción de las especificaciones
+- comentarios: otros comentarios del requerimiento.
+
+PROCESO
+El Diagrama de Tuberías e Instrumentación (P&ID) es una representación esquemática detallada de
+un proceso industrial, mostrando los equipos, tuberías, instrumentos y dispositivos de control.
+Para un sistema de tres tanques de agua potable (Tank1, Tank2 y Tabl3) con sensores de:
+- presión
+- temperatura
+- flujo
+- nivel de llenado
+y actuadores de
+- válvulas de entrada y salida
+así es como se representarían típicamente los valores y unidades en un P&ID, 
+
+1. Sensores
+Los sensores miden una variable de proceso y transmiten esa información.
+En un P&ID, un sensor se identifica con un círculo y un código alfanumérico que indica la
+variable medida, el tipo de instrumento y un número de bucle.
+
+a. Sensore de Presión (PS - Pressure Sensor / PT - Pressure Transmitter)
+- PS-101 (Sensor de Presión del Tanque 1)
+- PS-102 (Sensor de Presión del Tanque 2)
+- PS-103 (Sensor de Presión del Tanque 3)
+- PT-101 (Transmisor de Presión del Tanque 1)
+- PT-102 (Transmisor de Presión del Tanque 2)
+- PT-103 (Transmisor de Presión del Tanque 3)
+Presión de operación normal.
+Rango de medición (por ejemplo, 0 a 10 bar).
+Punto de ajuste (setpoint) si aplica (ej. presión máxima para una alarma).
+Unidades de Medida: bar (bares) - Común en Europa.
+
+b. Sensor de Temperatura (TS - Temperature Sensor)
+- TS-101 (Transmisor de Temperatura del Tanque 1)
+- TS-102 (Transmisor de Temperatura del Tanque 2)
+- TS-103 (Transmisor de Temperatura del Tanque 3)
+Temperatura de operación normal.
+Rango de medición (por ejemplo, 0 a 100 °C).
+Punto de ajuste si aplica (ej. temperatura mínima/máxima para una alarma).
+Unidades de Medida: °C (grados Celsius)
+
+c. Sensor de Flujo (FS - Flow Sensor)
+- FS-101 (Sensor de Flujo del Tanque 1)
+- FS-102 (Sensor de Flujo del Tanque 2)
+- FS-103 (Sensor de Flujo del Tanque 3)
+Caudal de operación normal (por ejemplo, 50 L/min).
+Rango de medición (por ejemplo, 0 a 100 L/min).
+Punto de ajuste si aplica (ej. caudal mínimo/máximo).
+Unidades de Medida:
+L/min (litros por minuto)
+
+d. Sensor de Nivel (LS - Level Sensor)
+- LS-101 (Sensor de Nivel de llenado del Tanque 1)
+- LS-102 (Sensor de Nivel de llenado del Tanque 2)
+- LS-103 (Sensor de Nivel de llenado del Tanque 3)
+Rango de medición (0% a 100%).
+Unidades de Medida: porcentaje
+
+2. Actuadores
+Los actuadores son dispositivos que manipulan una variable de proceso,
+generalmente basados en una señal de control de un controlador.
+Para las válvulas, son actuadores On/Off.
+
+a. Válvula de Entrada (HV - Hand Valve / XV - Actuated Valve)
+- XV-101A (Válvula Accionada del Tanque 1, Entrada)
+- XV-102A (Válvula Accionada del Tanque 2, Entrada)
+- XV-103A (Válvula Accionada del Tanque 3, Entrada)
+Función: Abrir o cerrar el flujo de entrada al tanque.
+Estado: Abierta / Cerrada (ON/OFF, True/False en tu simulación).
+Tiempo de apertura/cierre (si es relevante, para válvulas con actuadores lentos).
+Unidades de Medida: No aplica directamente una unidad de medida continua, sino un estado discreto.
+
+b. Válvula de Salida (HV - Hand Valve / XV - Actuated Valve)
+- XV-101B (Válvula Accionada del Tanque 1, Salida)
+- XV-102B (Válvula Accionada del Tanque 2, Salida)
+- XV-102B (Válvula Accionada del Tanque 3, Salida)
+Función: Abrir o cerrar el flujo de salida del tanque.
+Estado: Abierta / Cerrada (ON/OFF, True/False en tu simulación).
+Tiempo de apertura/cierre.
+Unidades de Medida: No aplica una unidad de medida continua, sino un estado discreto.
+
+
+3. Tanques de Agua Potable
+Código de Equipo (Vessel): T-101, T-102, T-103 (Para Tanque 1, Tanque 2, Tanque 3).
+Volumen/Capacidad: Se especificaría en litros (L)
+- Tank1 (Tanque 1 de Agua Potable)
+- Tank2 (Tanque 1 de Agua Potable)
+- Tank3 (Tanque 1 de Agua Potable)
+
+El Documento de Diseño de Ingenería de Detalle debe contener:
+- Hojas de Datos de Instrumentos: Documentos detallados para cada instrumento que 
+  especifican su rango de medición, precisión, unidades, conexiones, etc.
+- Descripción Funcional del Proceso (FDS - Functional Design Specification):
+  Documento que describe cómo funciona el sistema, incluyendo los rangos operativos normales 
+  y los puntos de ajuste para alarmas o control.
+- Sistema de Control (SCADA/PLC): Es donde estos valores se monitorean en tiempo real y
+  donde los rangos y unidades se configuran para la visualización y el control.

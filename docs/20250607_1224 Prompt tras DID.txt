@@ -1,0 +1,8 @@
+SCADA23
+Actúa como SCRUM MASTER
+En base a este documento de Ingeniería de detalle adjunto, añade un capítulo de Planificación del Desarrollo,
+en español, basada en metodología SCRUM, con hitos tareas y nombres de ficheros Python .py
+para que un equipo de tres personas generen el código Python para
+- Consola SCADA basada en Python con tcl/tk
+- PLC simulado 
+ambos comunicándose mediante modbus para modificar los holding registrers
