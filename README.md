@@ -66,35 +66,34 @@ Para iniciar la simulación y la consola SCADA, ejecuta los siguientes scripts d
 
 La estructura del proyecto está diseñada para ser modular y extensible.
 
-SCADA23/
+CADA23/
 ├── src/
-│   ├── config_manager.py        # 🔧 Clase para cargar y manejar la configuración del sistema (e.g., config.json).
-│   ├── utils.py                 # 🛠️ Funciones utilitarias generales para el proyecto.
+[cite_start]│   ├── config_manager.py        # 🔧 Clase para cargar y manejar la configuración del sistema (e.g., config.json). 
+[cite_start]│   ├── utils.py                 # 🛠️ Funciones utilitarias generales para el proyecto. 
 │   │
-│   ├── modbus_device.py         # 🔌 Clase base para un dispositivo Modbus/TCP (manejo de Holding Registers y Coils).
-│   ├── tank_simulator.py        # 💧 Lógica específica de los tanques de agua (T-101, T-102, T-103), incluyendo llenado/vaciado y actualización de sensores.
-│   ├── plc_emulator.py          # 🤖 Orquestador de los tanques simulados y el servidor Modbus/TCP para emulación de PLC.
-│   ├── sensor_data_generator.py # 📊 Módulo para generar datos realistas de sensores para la simulación.
+[cite_start]│   ├── modbus_device.py         # 🔌 Clase base para un dispositivo Modbus/TCP (manejo de Holding Registers y Coils). 
+[cite_start]│   ├── tank_simulator.py        # 💧 Lógica específica de los tanques de agua (T-101, T-102, T-103), incluyendo llenado/vaciado y actualización de sensores. 
+[cite_start]│   ├── plc_emulator.py          # 🤖 Orquestador de los tanques simulados y el servidor Modbus/TCP para emulación de PLC. 
+[cite_start]│   ├── sensor_data_generator.py # 📊 Módulo para generar datos realistas de sensores para la simulación. 
 │   │
-│   ├── modbus_client.py         # 📡 Cliente Modbus/TCP para leer Holding Registers y escribir Coils en PLCs (simulados o reales).
-│   ├── scada_hmi.py             # 🖥️ Lógica principal de la interfaz gráfica de usuario (HMI) construida con tcl/tk.
-│   ├── hmi_elements.py          # 🎨 Clases para los elementos gráficos de la HMI: tanques, válvulas, indicadores de sensores.
-│   ├── alarm_manager.py         # 🚨 Lógica para detectar y mostrar alarmas.
-│   ├── data_acquisition.py      # 📈 Módulo para gestionar la lectura periódica de datos del PLC.
-│   ├── control_logic.py         # 🕹️ Módulo para gestionar el envío de comandos al PLC.
-│   ├── traffic_monitor.py       # 🕵️‍♂️ Módulo para la captura y análisis no intrusivo de tráfico Modbus/TCP de PLCs reales (utiliza Scapy).
+[cite_start]│   ├── modbus_client.py         # 📡 Cliente Modbus/TCP para leer Holding Registers y escribir Coils en PLCs (simulados o reales). 
+[cite_start]│   ├── scada_hmi.py             # 🖥️ Lógica principal de la interfaz gráfica de usuario (HMI) construida con tcl/tk. 
+[cite_start]│   ├── hmi_elements.py          # 🎨 Clases para los elementos gráficos de la HMI: tanques, válvulas, indicadores de sensores. 
+[cite_start]│   ├── alarm_manager.py         # 🚨 Lógica para detectar y mostrar alarmas. 
+[cite_start]│   ├── data_acquisition.py      # 📈 Módulo para gestionar la lectura periódica de datos del PLC. 
+[cite_start]│   ├── control_logic.py         # 🕹️ Módulo para gestionar el envío de comandos al PLC. 
+[cite_start]│   ├── traffic_monitor.py       # 🕵️‍♂️ Módulo para la captura y análisis no intrusivo de tráfico Modbus/TCP de PLCs reales (utiliza Scapy). 
 │   │
-│   ├── main_plc_simulator.py    # ▶️ Script principal para iniciar el PLC simulado.
-│   └── main_scada_console.py    # ▶️ Script principal para iniciar la consola SCADA.
+[cite_start]│   ├── main_plc_simulator.py    # ▶️ Script principal para iniciar el PLC simulado. 
+[cite_start]│   └── main_scada_console.py    # ▶️ Script principal para iniciar la consola SCADA. 
 │
 ├── docs/                        # 📚 Carpeta para la documentación del proyecto.
 │   └── img/                     # 🖼️ Imágenes utilizadas en la documentación (e.g., logos).
 │
 ├── config/
-│   └── water_system.json        # ⚙️ Archivo de configuración por defecto para el módulo de Agua Potable.
+[cite_start]│   └── water_system.json        # ⚙️ Archivo de configuración por defecto para el módulo de Agua Potable. 
 │
 └── README.md                    # 📖 Este mismo archivo.
-
 
 ## 🤝 Colaboración
 
