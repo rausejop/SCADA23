@@ -1,0 +1,117 @@
+{
+  "system_id": "SAC06",
+  "system_name": "Agua Potable",
+  "description": "Módulo inicial implementado por defecto para el sistema de agua potable, que abarca la descripción funcional del proceso, hojas de datos de instrumentos y componentes principales.",
+  "functional_specifications": [
+    {
+      "id": "FDS001",
+      "name": "General Process Description",
+      "details": "Este módulo define el proceso del sistema de agua potable. Una descripción funcional detallada (FDS) se establecerá para cada etapa del proceso, incluyendo entradas, salidas, y lógica de control."
+    },
+    {
+      "id": "FDS002",
+      "name": "Data Acquisition and Monitoring",
+      "details": "El sistema está diseñado para la adquisición y monitorización de datos de los instrumentos y componentes relevantes para el proceso de agua potable, permitiendo la visualización en tiempo real y el registro histórico."
+    },
+    {
+      "id": "FDS003",
+      "name": "Control Logic",
+      "details": "Se implementará lógica de control para la automatización de operaciones críticas, gestión de niveles, flujos, y calidad del agua, con capacidad para modos manuales y automáticos."
+    }
+  ],
+  "components": [
+    {
+      "id": "COMP001",
+      "name": "Bomba Principal de Suministro",
+      "type": "Bomba Centrífuga",
+      "status": "Desconocido",
+      "parameters": {
+        "caudal_max_m3_h": null,
+        "potencia_kW": null
+      },
+      "notes": "Componente clave para el suministro de agua bruta o tratada. Detalles específicos a definir en hojas de datos de componentes."
+    },
+    {
+      "id": "COMP002",
+      "name": "Tanque de Almacenamiento",
+      "type": "Tanque",
+      "status": "Desconocido",
+      "parameters": {
+        "capacidad_m3": null,
+        "nivel_min_m": null,
+        "nivel_max_m": null
+      },
+      "notes": "Utilizado para el almacenamiento de agua potable. Detalles específicos a definir."
+    },
+    {
+      "id": "COMP003",
+      "name": "Válvula de Control de Flujo",
+      "type": "Válvula Motorizada",
+      "status": "Desconocido",
+      "parameters": {
+        "diametro_nominal_mm": null,
+        "tipo_actuacion": "Eléctrica/Neumática"
+      },
+      "notes": "Regula el flujo de agua en diferentes puntos del sistema. Detalles específicos a definir."
+    },
+    {
+      "id": "COMP004",
+      "name": "Unidad de Tratamiento (Filtración/Cloración)",
+      "type": "Unidad de Proceso",
+      "status": "Desconocido",
+      "parameters": {
+        "capacidad_tratamiento_m3_h": null,
+        "tipo_tratamiento": "Filtración, Cloración"
+      },
+      "notes": "Representa una etapa de tratamiento esencial. Los detalles de las sub-unidades se especificarán en documentos de ingeniería de proceso."
+    }
+  ],
+  "instruments": [
+    {
+      "id": "INST001",
+      "name": "Sensor de Nivel de Tanque",
+      "tag": "LT-XXXX",
+      "type": "Nivel",
+      "measurement_unit": "metros (m)",
+      "data_sheet_reference": "Consultar hojas de datos de instrumentos específicas.",
+      "notes": "Monitoriza el nivel del agua en los tanques de almacenamiento."
+    },
+    {
+      "id": "INST002",
+      "name": "Medidor de Flujo",
+      "tag": "FT-XXXX",
+      "type": "Flujo",
+      "measurement_unit": "metros cúbicos por hora (m³/h)",
+      "data_sheet_reference": "Consultar hojas de datos de instrumentos específicas.",
+      "notes": "Mide el caudal de agua en tuberías principales."
+    },
+    {
+      "id": "INST003",
+      "name": "Sensor de Presión",
+      "tag": "PT-XXXX",
+      "type": "Presión",
+      "measurement_unit": "bar (barg)",
+      "data_sheet_reference": "Consultar hojas de datos de instrumentos específicas.",
+      "notes": "Monitoriza la presión en puntos clave del sistema."
+    },
+    {
+      "id": "INST004",
+      "name": "Analizador de Cloro Residual",
+      "tag": "AT-XXXX",
+      "type": "Calidad del Agua",
+      "measurement_unit": "partes por millón (ppm)",
+      "data_sheet_reference": "Consultar hojas de datos de instrumentos específicas.",
+      "notes": "Mide la concentración de cloro residual para asegurar la calidad del agua."
+    },
+    {
+      "id": "INST005",
+      "name": "Sensor de Turbidez",
+      "tag": "TT-XXXX",
+      "type": "Calidad del Agua",
+      "measurement_unit": "Unidades Nefelométricas de Turbidez (NTU)",
+      "data_sheet_reference": "Consultar hojas de datos de instrumentos específicas.",
+      "notes": "Mide la turbidez del agua, un indicador de la calidad."
+    }
+  ],
+  "notes": "Este archivo JSON es un esqueleto basado en el 'SCADA23 Documento de Ingeniería de Detalle'. Los valores 'null' y 'Desconocido' o referencias a 'Consultar hojas de datos de instrumentos específicas' indican que la información detallada no estaba disponible en el documento proporcionado y debe ser rellenada manualmente o a través de otros documentos de ingeniería."
+}
