@@ -33,7 +33,7 @@ Este proyecto es de **código abierto** y se fomenta la colaboración. Si deseas
 
 1.  Clona el repositorio:
     ```bash
-    git clone [https://github.com/rausejop/SCADA23.git](https://github.com/rausejop/SCADA23.git)
+    git clone https://github.com/rausejop/SCADA23.git
     cd SCADA23
     ```
     El estado actual del proyecto se encuentra en `https://github.com/rausejop/SCADA23`.
