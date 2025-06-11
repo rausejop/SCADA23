@@ -66,34 +66,121 @@ Para iniciar la simulación y la consola SCADA, ejecuta los siguientes scripts d
 
 La estructura del proyecto está diseñada para ser modular y extensible.
 ```
-SCADA23/
-├── src/
-│   ├── config_manager.py        # 🔧 Clase para cargar y manejar la configuración del sistema (e.g., config.json).
-│   ├── utils.py                 # 🛠️ Funciones utilitarias generales para el proyecto.
-│   │
-│   ├── modbus_device.py         # 🔌 Clase base para un dispositivo Modbus/TCP (manejo de Holding Registers y Coils).
-│   ├── tank_simulator.py        # 💧 Lógica específica de los tanques de agua (T-101, T-102, T-103), incluyendo llenado/vaciado y actualización de sensores.
-│   ├── plc_emulator.py          # 🤖 Orquestador de los tanques simulados y el servidor Modbus/TCP para emulación de PLC.
-│   ├── sensor_data_generator.py # 📊 Módulo para generar datos realistas de sensores para la simulación.
-│   │
-│   ├── modbus_client.py         # 📡 Cliente Modbus/TCP para leer Holding Registers y escribir Coils en PLCs (simulados o reales).
-│   ├── scada_hmi.py             # 🖥️ Lógica principal de la interfaz gráfica de usuario (HMI) construida con tcl/tk.
-│   ├── hmi_elements.py          # 🎨 Clases para los elementos gráficos de la HMI: tanques, válvulas, indicadores de sensores.
-│   ├── alarm_manager.py         # 🚨 Lógica para detectar y mostrar alarmas.
-│   ├── data_acquisition.py      # 📈 Módulo para gestionar la lectura periódica de datos del PLC.
-│   ├── control_logic.py         # 🕹️ Módulo para gestionar el envío de comandos al PLC.
-│   ├── traffic_monitor.py       # 🕵️‍♂️ Módulo para la captura y análisis no intrusivo de tráfico Modbus/TCP de PLCs reales (utiliza Scapy).
-│   │
-│   ├── main_plc_simulator.py    # ▶️ Script principal para iniciar el PLC simulado.
-│   └── main_scada_console.py    # ▶️ Script principal para iniciar la consola SCADA.
-│
-├── docs/                        # 📚 Carpeta para la documentación del proyecto.
-│   └── img/                     # 🖼️ Imágenes utilizadas en la documentación (e.g., logos).
-│
-├── config/
-│   └── water_system.json        # ⚙️ Archivo de configuración por defecto para el módulo de Agua Potable.
-│
-└── README.md                    # 📖 Este mismo archivo.
+SCADA23_Project/
+├── venv/                          # Entorno virtual de Python (excluido de Git) 📁
+├── src/                           # Código fuente de la aplicación 📂
+│   ├── __init__.py                # Para marcar 'src' como paquete Python 📜
+│   ├── data_acquisition/          # Módulo para comunicación con dispositivos 📦
+│   │   ├── __init__.py            # 📜
+│   │   ├── protocol_handlers.py   # 📄
+│   │   └── device_drivers.py      # 📄
+│   ├── control_logic/             # Módulo para la lógica de control automático ⚙️
+│   │   ├── __init__.py            # 📜
+│   │   └── automation_routines.py # 📄
+│   ├── hmi_backend/               # Backend para la interfaz de usuario (API REST) 🌐
+│   │   ├── __init__.py            # 📜
+│   │   ├── main.py                # Punto de entrada de la API (ej. FastAPI) 🚀
+│   │   └── api_routes.py          # 📄
+│   ├── database_manager/          # Gestión de la base de datos (modelos, CRUD) 🗄️
+│   │   ├── __init__.py            # 📜
+│   │   ├── models.py              # 📄
+│   │   └── crud.py                # 📄
+│   ├── alarm_event_manager/       # Gestión de alarmas y eventos 🚨
+│   │   ├── __init__.py            # 📜
+│   │   └── alarm_rules.py         # 📄
+│   ├── config/                    # Gestión de la configuración 🔧
+│   │   ├── __init__.py            # 📜
+│   │   └── settings.py            # 📄
+│   └── utils/                     # Funciones de utilidad comunes 🛠️
+│       ├── __init__.py            # 📜
+│       └── helpers.py             # 📄
+├── tests/                         # Pruebas unitarias, de integración y de sistema 🧪
+│   ├── unit/                      # Pruebas unitarias 🔬
+│   │   ├── test_data_acquisition.py # 📄
+│   │   └── test_control_logic.py  # 📄
+│   ├── integration/               # Pruebas de integración 🔗
+│   │   └── test_db_integration.py # 📄
+│   └── e2e/                       # Pruebas de extremo a extremo 🎯
+│       └── test_hmi_flow.py       # 📄
+├── docs/                          # Documentación del proyecto (técnica, de usuario) 📚
+│   ├── architecture.md            # 📄
+│   ├── deployment.md              # 📄
+│   └── user_manual.md             # 📄
+├── scripts/                       # Scripts de ayuda (ej. setup, run) 📜
+│   ├── run_dev.bat                # Script para ejecutar en desarrollo 📄
+│   └── deploy_prod.bat            # Script para despliegue en producción 📄
+├── data/                          # Archivos de datos estáticos, ejemplos, etc. 📊
+├── .env.example                   # Ejemplo de variables de entorno 📝
+├── requirements.txt               # Dependencias del proyecto 📋
+├── requirements-dev.txt           # Dependencias de desarrollo 📋
+├── README.md                      # Descripción general del proyecto 📄
+└── LICENCIA.md                    # Información de licencia ⚖️
+Así, el nombre del archivo o carpeta se mantiene limpio y el icono en la descripción ofrece esa ayuda visual adicional.
+
+
+
+
+
+
+
+pero que cuando pueda hace rcopiar y pegar en word no se descuadre
+
+
+¡Entendido! Cuando necesitas copiar y pegar en Word u otros procesadores de texto, los emojis a menudo causan problemas de alineación si no se manejan cuidadosamente, especialmente si se colocan directamente en el nombre del archivo o al principio de la línea.
+
+Para asegurarte de que tu esquema se copie y pegue bien en Word sin descuadrarse, la mejor estrategia es mantener los iconos al final de la descripción y usar espacios para la indentación en lugar de caracteres de tabulación que Word puede interpretar de forma diferente.
+
+Aquí tienes el esquema con los iconos ubicados para una mejor compatibilidad con la copia en Word, usando espacios para la indentación:
+
+SCADA23_Project/
+├── venv/                          # Entorno virtual de Python (excluido de Git) 📁
+├── src/                           # Código fuente de la aplicación 📂
+│   ├── __init__.py                # Para marcar 'src' como paquete Python 📜
+│   ├── data_acquisition/          # Módulo para comunicación con dispositivos 📦
+│   │   ├── __init__.py            # 📜
+│   │   ├── protocol_handlers.py   # 📄
+│   │   └── device_drivers.py      # 📄
+│   ├── control_logic/             # Módulo para la lógica de control automático ⚙️
+│   │   ├── __init__.py            # 📜
+│   │   └── automation_routines.py # 📄
+│   ├── hmi_backend/               # Backend para la interfaz de usuario (API REST) 🌐
+│   │   ├── __init__.py            # 📜
+│   │   ├── main.py                # Punto de entrada de la API (ej. FastAPI) 🚀
+│   │   └── api_routes.py          # 📄
+│   ├── database_manager/          # Gestión de la base de datos (modelos, CRUD) 🗄️
+│   │   ├── __init__.py            # 📜
+│   │   ├── models.py              # 📄
+│   │   └── crud.py                # 📄
+│   ├── alarm_event_manager/       # Gestión de alarmas y eventos 🚨
+│   │   ├── __init__.py            # 📜
+│   │   └── alarm_rules.py         # 📄
+│   ├── config/                    # Gestión de la configuración 🔧
+│   │   ├── __init__.py            # 📜
+│   │   └── settings.py            # 📄
+│   └── utils/                     # Funciones de utilidad comunes 🛠️
+│       ├── __init__.py            # 📜
+│       └── helpers.py             # 📄
+├── tests/                         # Pruebas unitarias, de integración y de sistema 🧪
+│   ├── unit/                      # Pruebas unitarias 🔬
+│   │   ├── test_data_acquisition.py # 📄
+│   │   └── test_control_logic.py  # 📄
+│   ├── integration/               # Pruebas de integración 🔗
+│   │   └── test_db_integration.py # 📄
+│   └── e2e/                       # Pruebas de extremo a extremo 🎯
+│       └── test_hmi_flow.py       # 📄
+├── docs/                          # Documentación del proyecto (técnica, de usuario) 📚
+│   ├── architecture.md            # 📄
+│   ├── deployment.md              # 📄
+│   └── user_manual.md             # 📄
+├── scripts/                       # Scripts de ayuda (ej. setup, run) 📜
+│   ├── run_dev.bat                # Script para ejecutar en desarrollo 📄
+│   └── deploy_prod.bat            # Script para despliegue en producción 📄
+├── data/                          # Archivos de datos estáticos, ejemplos, etc. 📊
+├── .env.example                   # Ejemplo de variables de entorno 📝
+├── requirements.txt               # Dependencias del proyecto 📋
+├── requirements-dev.txt           # Dependencias de desarrollo 📋
+├── README.md                      # Descripción general del proyecto 📄
+└── LICENCIA.md                    # Información de licencia ⚖️
 ```
 
 
