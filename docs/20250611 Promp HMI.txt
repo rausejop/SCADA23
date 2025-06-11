@@ -1,0 +1,1 @@
+Genera una imagen de un sistema SCADA para el control de tres tanques de agua con control de las válvulas de agua potable con entrada, salida y porcentaje de llenado de una EDAR estación de tratamiento de agua potable dentro de un recinto para las fases: creación, almacenamiento, uso, mantenimiento, disposición y preservación
